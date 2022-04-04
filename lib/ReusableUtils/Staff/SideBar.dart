@@ -102,6 +102,8 @@ class _SideBarState extends State<SideBar> {
                     child: (staffModel.imageUrl=="null")?Initicon(
                       borderRadius: BorderRadius.circular(50),
                       text: staffModel.fullName,
+                      color: Colors.white,
+                      backgroundColor: Colors.black87,
                       size: 90,
                     ):null,
                   ),

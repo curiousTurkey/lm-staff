@@ -48,6 +48,7 @@ dependencies:
   user_profile_avatar: ^0.1.0
   flutter_initicon: ^2.0.0
   intl: ^0.17.0
+  dots_indicator: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +81,9 @@ flutter:
     - assets/background/photo.jpg
     - assets/icons/dean.png
     - assets/background/teacher.png
+    - assets/ScrollableImages/college.jpg
+    - assets/ScrollableImages/3.jpg
+    - assets/ScrollableImages/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
