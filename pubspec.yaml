@@ -47,6 +47,7 @@ dependencies:
   custom_alert_dialog_box: ^1.0.2
   user_profile_avatar: ^0.1.0
   flutter_initicon: ^2.0.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
            stream: FirebaseAuth.instance.userChanges(),
            builder: (context,snapShot){
              if(snapShot.hasData){
-               return SplashScreen();
+               return const SplashScreen();
              }
              else if(snapShot.hasError){
                return Scaffold(

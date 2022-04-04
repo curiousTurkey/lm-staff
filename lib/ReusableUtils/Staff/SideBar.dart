@@ -1,9 +1,11 @@
+import 'package:lms_staff/AppScreens/LeaveApplication.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
 import 'package:lms_staff/ReusableUtils/Responsive.dart' as resize;
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
 import 'package:flutter_initicon/flutter_initicon.dart';
 import 'package:flutter/material.dart';
+import 'package:lms_staff/ReusableUtils/Side%20transition.dart';
 import 'package:provider/provider.dart';
 import '../../Models/StaffModel.dart';
 import '../../Staff Provider/StaffProvider.dart';
@@ -141,6 +143,7 @@ class _SideBarState extends State<SideBar> {
               leadingIcon: Icons.newspaper_outlined,
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, CustomPageRouteSide(child: const LeaveApply()));
               }),
           sidebarListTile(
               title: 'Leave Status',
@@ -168,7 +171,6 @@ class _SideBarState extends State<SideBar> {
               title: 'Logout',
               leadingIcon: Icons.logout_outlined,
               onTap:(){
-                Navigator.pop(context);
                 logoutStaff();
               }
           ),
