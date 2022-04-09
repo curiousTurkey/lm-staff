@@ -54,14 +54,14 @@ class _ScrollPageViewState extends State<ScrollPageView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.zero,
       child: PageView(
         controller: _pageController,
         children: [
           Container(
             padding: EdgeInsets.zero,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                 image: AssetImage(listImages[0]),
                 fit: BoxFit.cover
@@ -74,7 +74,7 @@ class _ScrollPageViewState extends State<ScrollPageView> {
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                   image: AssetImage(listImages[1]),
                   fit: BoxFit.cover
@@ -87,7 +87,7 @@ class _ScrollPageViewState extends State<ScrollPageView> {
           ),
             Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                   image: AssetImage(listImages[2]),
                   fit: BoxFit.cover
@@ -99,7 +99,7 @@ class _ScrollPageViewState extends State<ScrollPageView> {
           ),),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                   image: AssetImage(listImages[3]),
                   fit: BoxFit.cover
@@ -111,7 +111,7 @@ class _ScrollPageViewState extends State<ScrollPageView> {
           ),),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(0),
               image: DecorationImage(
                   image: AssetImage(listImages[4]),
                   fit: BoxFit.cover

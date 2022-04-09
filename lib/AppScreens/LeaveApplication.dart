@@ -23,8 +23,8 @@ class _LeaveApplyState extends State<LeaveApply> {
   final TextEditingController _reasonController = TextEditingController();
 
   DateTime date = DateTime.now().toLocal();
-  DateTime selectedDate1 = DateTime.now();
-  DateTime selectedDate2 = DateTime.now();
+   DateTime selectedDate1 = DateTime.now().subtract( const Duration(days: 100));
+   DateTime selectedDate2 = DateTime.now().subtract(const Duration(days: 100));
   bool isLoading = false;
   late String fullName;
   late String dept;
@@ -78,8 +78,8 @@ class _LeaveApplyState extends State<LeaveApply> {
     if(picked != null && picked.compareTo(date)>=0){
       setState(() {
         String formattedDate = format.format(picked);
-        var date = DateTime.parse(formattedDate);
-        selectedDate1 = date;
+        var dateFormatted = DateTime.parse(formattedDate);
+        selectedDate1 = dateFormatted;
         print(selectedDate1);
       });
     }
@@ -104,6 +104,8 @@ class _LeaveApplyState extends State<LeaveApply> {
   DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(value: item, child: Text(item),);
   String selectedSession1 = "Select Session";
   String selectedSession2 = "Select Session";
+
+  var formattedDate = DateFormat('d-MM-yyyy');
     @override
     Widget build(BuildContext context) {
       StaffModel staffModel = Provider.of<StaffProvider>(context).getStaff;
@@ -173,10 +175,15 @@ class _LeaveApplyState extends State<LeaveApply> {
                         color: color_mode.spclColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text('select Date',
+                      child: (selectedDate1.compareTo(date)>0)?Text(formattedDate.format(selectedDate1).toString(),
                         style: TextStyle(
-                          fontSize: resize.screenLayout(29, context),
-                          color: color_mode.tertiaryColor
+                            fontSize: resize.screenLayout(29, context),
+                            color: color_mode.tertiaryColor
+                        ),
+                      ):Text("Select Date",
+                        style: TextStyle(
+                            fontSize: resize.screenLayout(29, context),
+                            color: color_mode.tertiaryColor
                         ),
                       ),
                     ),
@@ -226,7 +233,12 @@ class _LeaveApplyState extends State<LeaveApply> {
                         color: color_mode.spclColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text('select Date',
+                      child: (selectedDate2.compareTo(date)>0)?Text(formattedDate.format(selectedDate2).toString(),
+                        style: TextStyle(
+                            fontSize: resize.screenLayout(29, context),
+                            color: color_mode.tertiaryColor
+                        ),
+                      ):Text("Select Date",
                         style: TextStyle(
                             fontSize: resize.screenLayout(29, context),
                             color: color_mode.tertiaryColor
@@ -267,15 +279,20 @@ class _LeaveApplyState extends State<LeaveApply> {
                 width: double.infinity,
                 child: FloatingActionButton(
                   onPressed: () {
+                    print(selectedDate1.compareTo(date));
+                    print(selectedDate2.compareTo(date));
                     if(
                     _subjectController.text.isNotEmpty ||
                     _reasonController.text.isNotEmpty ||
-                    selectedDate1.compareTo(date)<=0 ||
-                    selectedDate2.compareTo(date)<=0 ||
                     selectedSession1 != "Select Session" ||
                     selectedSession2 != "Select Session"
                     ){
-                      applyLeave();
+                      if(selectedDate1.compareTo(date)>0 && selectedDate2.compareTo(date)>0) {
+                        applyLeave();
+                      }
+                      else{
+                        snackBar(content: 'Provide valid date', duration: 1500, context: context);
+                      }
                     }
                     else{
                       snackBar(content: 'Please provide all fields.', duration: 1500, context: context);
