@@ -11,7 +11,6 @@ class StaffLeaveModel {
   final String session1;
   final String session2;
   String isApproved;
-  int casualLeaveNo;
 
   StaffLeaveModel({
   required this.fullName,
@@ -23,7 +22,6 @@ class StaffLeaveModel {
   required this.toDate,
   required this.session1,
   required this.session2,
-    this.casualLeaveNo=1,
     this.isApproved="no"
 });
 
@@ -37,7 +35,6 @@ class StaffLeaveModel {
     "todate" : toDate,
     "session1" : session1,
     "session2" : session2,
-    "casualleavetaken" : casualLeaveNo,
     "isapproved" : isApproved
   };
 
@@ -53,7 +50,6 @@ class StaffLeaveModel {
         toDate: snapShot["todate"],
         session1: snapShot["session1"],
         session2: snapShot["session2"],
-        casualLeaveNo: snapShot["casualleavetaken"],
         isApproved: snapShot["isapproved"],
     );
   }

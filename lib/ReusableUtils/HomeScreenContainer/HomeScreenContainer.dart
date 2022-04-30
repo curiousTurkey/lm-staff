@@ -18,7 +18,7 @@ import 'package:lms_staff/ReusableUtils/Responsive.dart';
       onTap: onTap,
       child: Container(
           height: screenLayout(270, context),
-          width: screenLayout(320, context),
+          width: screenLayout(310, context),
           decoration: BoxDecoration(
             boxShadow: [BoxShadow(color: color_mode.spclColor.withOpacity(.5))],
             borderRadius: BorderRadius.circular(

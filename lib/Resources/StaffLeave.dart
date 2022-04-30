@@ -31,7 +31,7 @@ class StaffLeaveMethods{
           toDate: toDate,
           session1: session1,
           session2: session2);
-      await _firestore.collection('users').doc(emailAddress).collection('leave').doc().set(staffLeaveModel.toJson());
+      await _firestore.collection('leave').doc().set(staffLeaveModel.toJson());
       finalResult = "success";
 
     }catch(error){

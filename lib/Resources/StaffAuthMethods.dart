@@ -10,7 +10,6 @@ class StaffAuthMethod{
 
   Future<StaffModel> getStaffDetails() async {
     var currentUser = _auth.currentUser!;
-    print(currentUser.email);
     DocumentSnapshot snapshot = await _firestore.collection('users').doc(currentUser.email).get();
     return StaffModel.fromSnap(snapshot);
   }

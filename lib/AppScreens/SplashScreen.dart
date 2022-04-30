@@ -49,7 +49,6 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.maxFinite,
         decoration: const BoxDecoration(
             image: DecorationImage(
-              filterQuality: FilterQuality.low,
               fit: BoxFit.fitHeight,
               image: AssetImage('assets/background/red.jpg'),
             )

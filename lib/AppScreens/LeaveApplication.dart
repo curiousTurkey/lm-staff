@@ -282,9 +282,9 @@ class _LeaveApplyState extends State<LeaveApply> {
                     print(selectedDate1.compareTo(date));
                     print(selectedDate2.compareTo(date));
                     if(
-                    _subjectController.text.isNotEmpty ||
-                    _reasonController.text.isNotEmpty ||
-                    selectedSession1 != "Select Session" ||
+                    _subjectController.text.isNotEmpty &&
+                    _reasonController.text.isNotEmpty &&
+                    selectedSession1 != "Select Session" &&
                     selectedSession2 != "Select Session"
                     ){
                       if(selectedDate1.compareTo(date)>0 && selectedDate2.compareTo(date)>0) {

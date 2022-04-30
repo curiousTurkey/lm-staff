@@ -98,48 +98,51 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: screenLayout(40, context),
                   ),
-                  Wrap(
-                    runSpacing: screenLayout(10, context),
-                    spacing: screenLayout(10, context),
-                    children: [
-                      homeContainer(
-                          context: context,
-                          description: "Class announcement",
-                          heading: "Announcement",
-                          icon: FontAwesomeIcons.bell,
-                          onTap: () {}),
-                      homeContainer(
-                          context: context,
-                          description: "Approve students leave",
-                          heading: "Leave Approval",
-                          icon: FontAwesomeIcons.newspaper,
-                          onTap: () {}),
-                      homeContainer(
-                          context: context,
-                          description: "Publish timetable",
-                          heading: "TimeTable",
-                          icon: FontAwesomeIcons.calendar,
-                          onTap: () {}),
-                      homeContainer(
-                          context: context,
-                          description: "Apply for leave",
-                          heading: "Leave Application",
-                          icon: FontAwesomeIcons.paperPlane,
-                          onTap: applyLeave),
-                      homeContainer(
-                          context: context,
-                          description: "Status of leave",
-                          heading: "Leave Status",
-                          icon: FontAwesomeIcons.barsProgress,
-                          onTap: () {}),
-                      homeContainer(
-                          context: context,
-                          description: "History of leave",
-                          heading: "Leave History",
-                          icon: FontAwesomeIcons.history,
-                          onTap: () {}),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Wrap(
+                      runSpacing: screenLayout(10, context),
+                      spacing: screenLayout(10, context),
+                      children: [
+                        homeContainer(
+                            context: context,
+                            description: "Class announcement",
+                            heading: "Announcement",
+                            icon: FontAwesomeIcons.bell,
+                            onTap: () {}),
+                        homeContainer(
+                            context: context,
+                            description: "Approve students leave",
+                            heading: "Leave Approval",
+                            icon: FontAwesomeIcons.newspaper,
+                            onTap: () {}),
+                        homeContainer(
+                            context: context,
+                            description: "Publish timetable",
+                            heading: "TimeTable",
+                            icon: FontAwesomeIcons.calendar,
+                            onTap: () {}),
+                        homeContainer(
+                            context: context,
+                            description: "Apply for leave",
+                            heading: "Leave Application",
+                            icon: FontAwesomeIcons.paperPlane,
+                            onTap: applyLeave),
+                        homeContainer(
+                            context: context,
+                            description: "Status of leave",
+                            heading: "Leave Status",
+                            icon: FontAwesomeIcons.barsProgress,
+                            onTap: () {}),
+                        homeContainer(
+                            context: context,
+                            description: "History of leave",
+                            heading: "Leave History",
+                            icon: FontAwesomeIcons.history,
+                            onTap: () {}),
 
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(height: screenLayout(100, context),),
                 ],
