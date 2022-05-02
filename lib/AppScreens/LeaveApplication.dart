@@ -26,9 +26,9 @@ class _LeaveApplyState extends State<LeaveApply> {
    DateTime selectedDate1 = DateTime.now().subtract( const Duration(days: 100));
    DateTime selectedDate2 = DateTime.now().subtract(const Duration(days: 100));
   bool isLoading = false;
-  late String fullName;
-  late String dept;
-  late String emailAddress;
+  late String name;
+  late String deptStaff;
+  late String email;
 
   @override
   void initState(){
@@ -48,9 +48,9 @@ class _LeaveApplyState extends State<LeaveApply> {
       isLoading = true;
     });
     String finalResult = await StaffLeaveMethods().applyLeave(
-        fullName: fullName,
-        dept: dept,
-        emailAddress: emailAddress,
+        fullName: name,
+        dept: deptStaff,
+        emailAddress: email,
         leaveSubject: _subjectController.text,
         leaveReason: _reasonController.text,
         fromDate: selectedDate1.toString(),
@@ -109,9 +109,9 @@ class _LeaveApplyState extends State<LeaveApply> {
     @override
     Widget build(BuildContext context) {
       StaffModel staffModel = Provider.of<StaffProvider>(context).getStaff;
-       fullName = staffModel.fullName;
-       emailAddress = staffModel.emailAddress;
-       dept = staffModel.deptName;
+       name = staffModel.fullName;
+       email = staffModel.emailAddress;
+       deptStaff = staffModel.deptName;
       TextStyle textStyle = TextStyle(color: color_mode.secondaryColor2,
           fontWeight: FontWeight.w600,
           letterSpacing: 1.7);
@@ -139,7 +139,7 @@ class _LeaveApplyState extends State<LeaveApply> {
                   Text('Casual Leave Left : ',
                     style: textStyle,
                   ),
-                  Text('15',
+                  Text((15 - (staffModel.casualLeaveTaken)).toString(),
                     style: textStyle,
                   ),
                 ],
@@ -291,11 +291,13 @@ class _LeaveApplyState extends State<LeaveApply> {
                         applyLeave();
                       }
                       else{
+
                         snackBar(content: 'Provide valid date', duration: 1500, context: context);
                       }
                     }
                     else{
                       snackBar(content: 'Please provide all fields.', duration: 1500, context: context);
+
                     }
                   },
                   elevation: 5.0,
