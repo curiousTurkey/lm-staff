@@ -1,5 +1,9 @@
+import 'package:lms_staff/AppScreens/Announcement.dart';
 import 'package:lms_staff/AppScreens/LeaveApplication.dart';
+import 'package:lms_staff/AppScreens/LeaveHistory.dart';
+import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
+import 'package:lms_staff/AppScreens/StudentLeave.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
 import 'package:lms_staff/ReusableUtils/Responsive.dart' as resize;
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
@@ -126,12 +130,14 @@ class _SideBarState extends State<SideBar> {
               title: 'Class Announcement',
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Announcement()));
               }):const SizedBox(height: 0,),(staffModel.isClassTeacher == true)?
           sidebarListTile(
               leadingIcon: Icons.newspaper_outlined,
               title: 'Approve Student Leave',
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const StudentLeave()));
               }):const SizedBox(height: 0,),
           (staffModel.isClassTeacher == true)?
           sidebarListTile(
@@ -152,12 +158,14 @@ class _SideBarState extends State<SideBar> {
               leadingIcon: Icons.next_week_outlined,
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveStatus()));
               }),
           sidebarListTile(
               title: 'Leave History',
               leadingIcon: Icons.history,
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveHistory()));
               }),
           sidebarListTile(
               title: 'Profile',
