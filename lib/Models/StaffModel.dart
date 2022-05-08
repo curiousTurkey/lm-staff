@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
 class StaffModel{
   final String fullName;
@@ -62,4 +63,18 @@ class StaffModel{
       casualLeaveTaken: snapShot['casualleavetaken']
     );
   }
+  static StaffModel fromJsonAsync(AsyncSnapshot<DocumentSnapshot<Map<String,dynamic>>> json) => StaffModel(
+      fullName: json.data!['fullname'],
+  emailAddress: json.data!['email'],
+  password: json.data!['password'],
+  userId: json.data!['userid'],
+  contactNo: json.data!['contact'],
+  isClassTeacher : json.data!['isclassteacher'],
+  semClassTeacher: json.data!['semclassteacher'],
+  imageUrl: json.data!['imageurl'],
+  userType: json.data!['usertype'],
+  deptName: json.data!['dept'],
+  firstSignin: json.data!['firstsignin'],
+  casualLeaveTaken: json.data!['casualleavetaken']);
+
 }

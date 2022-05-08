@@ -1,9 +1,11 @@
 import 'package:lms_staff/AppScreens/Announcement.dart';
+import 'package:lms_staff/AppScreens/HomePage.dart';
 import 'package:lms_staff/AppScreens/LeaveApplication.dart';
 import 'package:lms_staff/AppScreens/LeaveHistory.dart';
 import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
 import 'package:lms_staff/AppScreens/StudentLeave.dart';
+import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
 import 'package:lms_staff/ReusableUtils/Responsive.dart' as resize;
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
@@ -123,6 +125,7 @@ class _SideBarState extends State<SideBar> {
               title: 'Home',
               onTap: (){
                 Navigator.pop(context);
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const HomeScreen()));
               }),
           (staffModel.isClassTeacher == true)?
           sidebarListTile(
@@ -145,6 +148,7 @@ class _SideBarState extends State<SideBar> {
               title: "Today's Time Table",
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const TimeTablePublish()));
               }):const SizedBox(height: 0,),
           sidebarListTile(
               title: 'Apply Leave',

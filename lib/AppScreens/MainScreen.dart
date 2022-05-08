@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lms_staff/AppScreens/Profile.dart';
 import 'package:lms_staff/Models/StaffModel.dart';
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
 import 'package:lms_staff/Staff%20Provider/StaffProvider.dart';
@@ -51,6 +52,7 @@ class _MainPageState extends State<MainPage> {
           },
           children: const [
             HomeScreen(),
+            ProfileScreen()
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
