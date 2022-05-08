@@ -13,7 +13,7 @@ class _LeaveStatusState extends State<LeaveStatus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context: context, title: 'Leave History'),
+      appBar: appBar(context: context, title: 'Leave Status'),
       body: const Center(
         child: Text('Leave Status'),
       ),

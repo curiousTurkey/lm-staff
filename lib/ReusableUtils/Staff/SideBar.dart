@@ -3,6 +3,7 @@ import 'package:lms_staff/AppScreens/HomePage.dart';
 import 'package:lms_staff/AppScreens/LeaveApplication.dart';
 import 'package:lms_staff/AppScreens/LeaveHistory.dart';
 import 'package:lms_staff/AppScreens/LeaveStatus.dart';
+import 'package:lms_staff/AppScreens/Profile.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
 import 'package:lms_staff/AppScreens/StudentLeave.dart';
 import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
@@ -81,13 +82,8 @@ class _SideBarState extends State<SideBar> {
           SizedBox(
             height: screenLayout(340, context),
             child: UserAccountsDrawerHeader(
-                decoration: const BoxDecoration(
-                    image:  DecorationImage(
-                        image: AssetImage('assets/background/image.jpg'),
-                        fit: BoxFit.cover,
-                        isAntiAlias: true,
-                        filterQuality: FilterQuality.high
-                    )
+                decoration: BoxDecoration(
+                    color: color_mode.secondaryColor2.withOpacity(.9)
                 ),
                 accountName: Text(staffModel.fullName,
                   style: TextStyle(color: color_mode.tertiaryColor,
@@ -102,16 +98,16 @@ class _SideBarState extends State<SideBar> {
                 currentAccountPicture: Padding(
                   padding: EdgeInsets.zero,
                   child: CircleAvatar(
-                    backgroundColor: Colors.white10,
+                    backgroundColor: Colors.transparent,
                     radius: screenLayout(120, context),
-                   // backgroundImage: NetworkImage(),
+                    backgroundImage: (staffModel.imageUrl == 'null')?null:NetworkImage(staffModel.imageUrl),
                     child: (staffModel.imageUrl=="null")?Initicon(
                       borderRadius: BorderRadius.circular(50),
                       text: staffModel.fullName,
                       color: Colors.white,
                       backgroundColor: Colors.black87,
-                      size: 90,
-                    ):null,
+                      size: 120,
+                    ):null
                   ),
                 ),
             ),
@@ -176,6 +172,7 @@ class _SideBarState extends State<SideBar> {
               leadingIcon: Icons.person_outline_outlined,
               onTap: (){
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen()));
               }),
           Divider(
             color: color_mode.unImportant,

@@ -274,6 +274,7 @@ class _LeaveApplyState extends State<LeaveApply> {
                   ),
                 ],
               ),
+              resize.verticalSpace(180, context),
               Container(
                 padding: EdgeInsets.symmetric(vertical: resize.screenLayout(25, context),horizontal: resize.screenLayout(25, context)),
                 width: double.infinity,

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lms_staff/AppScreens/Announcement.dart';
 import 'package:lms_staff/AppScreens/LeaveApplication.dart';
+import 'package:lms_staff/AppScreens/LeaveHistory.dart';
+import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
+import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
 import 'package:lms_staff/Models/StaffModel.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
@@ -43,10 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
       Navigator.pushReplacement(
           context, CustomPageRouteSide(child: const StaffSignin()));
     }
-  }
-
-  void applyLeave() {
-    Navigator.push(context, CustomPageRouteSide(child: const LeaveApply()));
   }
 
   @override
@@ -109,7 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             description: "Class announcement",
                             heading: "Announcement",
                             icon: FontAwesomeIcons.bell,
-                            onTap: () {}),
+                            onTap: () {
+                              Navigator.push(context, CustomPageRouteSide(child: const Announcement()));
+                            }),
                         homeContainer(
                             context: context,
                             description: "Approve students leave",
@@ -121,25 +123,33 @@ class _HomeScreenState extends State<HomeScreen> {
                             description: "Publish timetable",
                             heading: "TimeTable",
                             icon: FontAwesomeIcons.calendar,
-                            onTap: () {}),
+                            onTap: () {
+                              Navigator.push(context, CustomPageRouteSide(child: const TimeTablePublish()));
+                            }),
                         homeContainer(
                             context: context,
                             description: "Apply for leave",
                             heading: "Leave Application",
                             icon: FontAwesomeIcons.paperPlane,
-                            onTap: applyLeave),
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveApply()));
+                            }),
                         homeContainer(
                             context: context,
                             description: "Status of leave",
                             heading: "Leave Status",
                             icon: FontAwesomeIcons.barsProgress,
-                            onTap: () {}),
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveStatus()));
+                            }),
                         homeContainer(
                             context: context,
                             description: "History of leave",
                             heading: "Leave History",
                             icon: FontAwesomeIcons.history,
-                            onTap: () {}),
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveHistory()));
+                            }),
 
                       ],
                     ),

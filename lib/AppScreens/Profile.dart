@@ -142,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
   String name = '';
   String contactNo = '';
-  String imageUrl = '';
+  String imageUrl = 'https://th.bing.com/th/id/OIP.gIU6LioM4yO4nTRQRHIysQHaE8?pid=ImgDet&rs=1';
   @override
   Widget build(BuildContext context) {
     StaffModel staffModel = Provider.of<StaffProvider>(context).getStaff;

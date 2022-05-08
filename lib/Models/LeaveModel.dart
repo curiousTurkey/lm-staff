@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
 class StaffLeaveModel {
   final String fullName;
@@ -53,4 +54,14 @@ class StaffLeaveModel {
         isApproved: snapShot["isapproved"],
     );
   }
+  static StaffLeaveModel fromJsonAsync(AsyncSnapshot<DocumentSnapshot<Map<String,dynamic>>> json) => StaffLeaveModel(
+      fullName: json.data!['fullname'],
+      dept: json.data!["dept"],
+      session2: json.data!['session2'],
+      fromDate: json.data!['fromdate'],
+      toDate: json.data!['todate'],
+      emailAddress: json.data!['email'],
+      leaveReason: json.data!['leavereason'],
+      session1: json.data!['session1'],
+      leaveSubject: json.data!['leavesub']);
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lms_staff/AppScreens/LeaveHistory.dart';
+import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/Profile.dart';
 import 'package:lms_staff/Models/StaffModel.dart';
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
@@ -52,6 +55,8 @@ class _MainPageState extends State<MainPage> {
           },
           children: const [
             HomeScreen(),
+            LeaveHistory(),
+            LeaveStatus(),
             ProfileScreen()
           ],
         ),
@@ -78,6 +83,18 @@ class _MainPageState extends State<MainPage> {
               icon: const Icon(Icons.home_outlined),
               label: "Home",
               activeIcon: Icon(Icons.home,color: color_mode.secondaryColor2,),
+              backgroundColor: color_mode.primaryColor,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(FontAwesomeIcons.history),
+              label: "Leave History",
+              activeIcon:Icon(FontAwesomeIcons.history,color: color_mode.secondaryColor2,),
+              backgroundColor: color_mode.primaryColor,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(FontAwesomeIcons.barsProgress),
+              label: "Leave Status",
+              activeIcon:Icon(FontAwesomeIcons.barsProgress,color: color_mode.secondaryColor2,),
               backgroundColor: color_mode.primaryColor,
             ),
             BottomNavigationBarItem(
