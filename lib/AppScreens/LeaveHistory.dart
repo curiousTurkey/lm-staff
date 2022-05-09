@@ -22,9 +22,11 @@ class _LeaveHistoryState extends State<LeaveHistory> {
   @override
   Widget build(BuildContext context) {
     StaffModel staffModel = Provider.of<StaffProvider>(context).getStaff;
-    final Stream<QuerySnapshot> leaveList = FirebaseFirestore.instance.collection('leave').where('email', isEqualTo: staffModel.emailAddress).snapshots();
+    final Stream<QuerySnapshot> leaveList = FirebaseFirestore.instance.collection('leave').
+    where('email', isEqualTo: staffModel.emailAddress).
+    where('isapproved',isEqualTo: 'yes').snapshots();
     return Scaffold(
-      appBar: appBar(context: context, title: 'Leave History List'),
+      appBar: appBar(context: context, title: 'Leave History'),
       body: StreamBuilder<QuerySnapshot>(
         stream: leaveList,
         builder: (_, AsyncSnapshot<QuerySnapshot> snapshot){
@@ -75,5 +77,4 @@ class _LeaveHistoryState extends State<LeaveHistory> {
         },
       ),
     );
-  }
-}
+  }}
