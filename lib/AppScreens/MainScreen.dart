@@ -90,7 +90,7 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
               icon: const Icon(FontAwesomeIcons.history,size: 19,),
               label: "Leave History",
-              activeIcon:Icon(FontAwesomeIcons.history,color: color_mode.secondaryColor2,size: 24,),
+              activeIcon:Icon(FontAwesomeIcons.history,color: color_mode.secondaryColor2,size: 26,),
               backgroundColor: color_mode.primaryColor,
             ),
             BottomNavigationBarItem(
@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
               icon: const Icon(FontAwesomeIcons.barsProgress,size: 19,),
               label: "Leave Status",
-              activeIcon:Icon(FontAwesomeIcons.barsProgress,color: color_mode.secondaryColor2,size: 24,),
+              activeIcon:Icon(FontAwesomeIcons.barsProgress,color: color_mode.secondaryColor2,size: 26,),
               backgroundColor: color_mode.primaryColor,
             ),
             BottomNavigationBarItem(

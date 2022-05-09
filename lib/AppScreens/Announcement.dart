@@ -77,6 +77,7 @@ class _AnnouncementState extends State<Announcement> {
     String announcerImage = staffModel.imageUrl;
     String announcerName = staffModel.fullName;
     String formattedDate = format.format(date);
+    print(formattedDate);
     return Scaffold(
       appBar: appBar(context: context, title: 'Class Announcement'),
       body: SingleChildScrollView(
@@ -125,7 +126,7 @@ class _AnnouncementState extends State<Announcement> {
                           body: _bodyController.text,
                           isForStudents: isForStudents.toString(),
                           isForStaff: isForStaff.toString(),
-                          date: formattedDate.toString(),
+                          date: formattedDate,
                           announcerImage: announcerImage,
                           announcerName: announcerName,
                           whichSem: whichSem);

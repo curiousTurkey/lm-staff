@@ -101,11 +101,11 @@ class _DepartmentAnnouncementState extends State<DepartmentAnnouncement> {
   }
   @override
   Widget build(BuildContext context) {
-    final Stream<QuerySnapshot> leaveList = FirebaseFirestore.instance.collection('announcement').where('isForTeacher', isEqualTo: 'true').snapshots();
+    final Stream<QuerySnapshot> announcements = FirebaseFirestore.instance.collection('announcement').where('isForTeacher', isEqualTo: 'true').snapshots();
     return Scaffold(
       appBar: appBar(context: context, title: 'Department Announcements'),
       body: StreamBuilder<QuerySnapshot>(
-        stream: leaveList,
+        stream: announcements,
         builder: (_, AsyncSnapshot<QuerySnapshot> snapshot){
           if (snapshot.hasError) {
             return const Text('Something went wrong. Try again later.');
