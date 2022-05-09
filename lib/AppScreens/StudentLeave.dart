@@ -199,7 +199,7 @@ class _DetailPageState extends State<DetailPage> {
       if(finalResult == "success"){
         double casual = (snapshot.data() as Map<String,dynamic>)['leavetaken']; //getting number of casual leave from user document.
         double requestedDays = totalDays + casual;
-        await firestore.collection('users').doc(email).update({'leavetaken' : requestedDays });
+        await firestore.collection('users').doc(widget.userId).update({'leavetaken' : requestedDays });
       }
       snackBar(content: 'Leave application approved successfully.', duration: 1500, context: context);
       return finalResult;
