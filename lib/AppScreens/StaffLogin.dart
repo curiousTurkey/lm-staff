@@ -57,7 +57,7 @@ class _StaffSigninState extends State<StaffSignin> {
               color: color_mode.primaryColor,
               image: const DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage('assets/background/background.jpg'))),
+                  image: AssetImage('assets/background/bg.jpg'))),
           height: double.maxFinite,
           width: double.maxFinite,
           child: SingleChildScrollView(
@@ -91,7 +91,7 @@ class _StaffSigninState extends State<StaffSignin> {
                           blurRadius: 4,
                         ),
                       ],
-                      color: color_mode.spclColor.withOpacity(.45)),
+                      color: color_mode.primaryColor.withOpacity(.85)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

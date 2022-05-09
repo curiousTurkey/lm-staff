@@ -21,7 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState(){
     super.initState();
-    addStaffData();
     nextPage();
   }
 
@@ -34,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
       });
     }
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, CustomPageRouteSide(child: nextPageWidget));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => nextPageWidget));
   });
   }
   addStaffData ()async{
