@@ -5,6 +5,7 @@ import 'package:lms_staff/AppScreens/LeaveApplication.dart';
 import 'package:lms_staff/AppScreens/LeaveHistory.dart';
 import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
+import 'package:lms_staff/AppScreens/StudentLeave.dart';
 import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
 import 'package:lms_staff/Models/StaffModel.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
@@ -117,7 +118,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             description: "Approve students leave",
                             heading: "Leave Approval",
                             icon: FontAwesomeIcons.newspaper,
-                            onTap: () {}),
+                            onTap: () {
+                              Navigator.push(context, CustomPageRouteSide(child: const StudentLeave()));
+                            }),
                         homeContainer(
                             context: context,
                             description: "Publish timetable",
@@ -134,6 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveApply()));
                             }),
+
                         homeContainer(
                             context: context,
                             description: "Status of leave",

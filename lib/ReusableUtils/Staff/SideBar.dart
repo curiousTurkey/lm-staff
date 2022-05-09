@@ -7,6 +7,7 @@ import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/Profile.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
 import 'package:lms_staff/AppScreens/StudentLeave.dart';
+import 'package:lms_staff/AppScreens/TimeTable.dart';
 import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
 import 'package:lms_staff/AppScreens/ViewDepartmentAnnouncement.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
@@ -143,7 +144,7 @@ class _SideBarState extends State<SideBar> {
           (staffModel.isClassTeacher == true)?
           sidebarListTile(
               leadingIcon: Icons.table_chart_outlined,
-              title: "Today's Time Table",
+              title: "Publish Time Table",
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const TimeTablePublish()));
@@ -154,6 +155,13 @@ class _SideBarState extends State<SideBar> {
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, CustomPageRouteSide(child: const LeaveApply()));
+              }),
+          sidebarListTile(
+              title: "Today's Time Table",
+              leadingIcon: FontAwesomeIcons.tableList,
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, CustomPageRouteSide(child: const ViewTimeTable()));
               }),
           sidebarListTile(
               title: 'Department Announcement',
