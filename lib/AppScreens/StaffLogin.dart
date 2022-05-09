@@ -6,10 +6,13 @@ import 'package:lms_staff/Resources/StaffAuthMethods.dart';
 import 'package:lms_staff/ReusableUtils/Responsive.dart' as resize;
 import 'package:lms_staff/ReusableUtils/Side%20transition.dart';
 import '../../ReusableUtils/SnackBar.dart';
+import '../ReusableUtils/Colors.dart';
+import '../ReusableUtils/Responsive.dart';
 import 'Package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
 import 'package:lms_staff/ReusableUtils/HeightWidth.dart' as heightwidth;
 import 'package:lms_staff/ReusableUtils/TextFormField.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lms_staff/AppScreens/ResetPassword.dart';
 
 class StaffSignin extends StatefulWidget {
   const StaffSignin({Key? key}) : super(key: key);
@@ -137,6 +140,22 @@ class _StaffSigninState extends State<StaffSignin> {
                         ),
                       ),
                       resize.verticalSpace(25, context),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                              onTap:(){
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const ResetPassword()));
+                              },
+                              child: Text('Forgot password?',
+                                style: TextStyle(
+                                  color: spclColor2,
+                                  fontSize: screenLayout(28, context),
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              )),
+                        ],
+                      ),
                     ],
                   ),
                 ),

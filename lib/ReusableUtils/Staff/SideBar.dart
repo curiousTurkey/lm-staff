@@ -133,7 +133,8 @@ class _SideBarState extends State<SideBar> {
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const Announcement()));
-              }):const SizedBox(height: 0,),(staffModel.isClassTeacher == true)?
+              }):const SizedBox(height: 0,),
+          (staffModel.isClassTeacher == true)?
           sidebarListTile(
               leadingIcon: Icons.newspaper_outlined,
               title: 'Approve Student Leave',

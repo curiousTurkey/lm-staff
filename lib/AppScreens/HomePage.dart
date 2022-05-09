@@ -6,6 +6,7 @@ import 'package:lms_staff/AppScreens/LeaveHistory.dart';
 import 'package:lms_staff/AppScreens/LeaveStatus.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
 import 'package:lms_staff/AppScreens/StudentLeave.dart';
+import 'package:lms_staff/AppScreens/TimeTable.dart';
 import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
 import 'package:lms_staff/Models/StaffModel.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
@@ -105,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       runSpacing: screenLayout(10, context),
                       spacing: screenLayout(10, context),
                       children: [
+                        (staffModel.isClassTeacher == true)?
                         homeContainer(
                             context: context,
                             description: "Class announcement",
@@ -112,7 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             icon: FontAwesomeIcons.bell,
                             onTap: () {
                               Navigator.push(context, CustomPageRouteSide(child: const Announcement()));
-                            }),
+                            }): Container(),
+                        (staffModel.isClassTeacher == true)?
                         homeContainer(
                             context: context,
                             description: "Approve students leave",
@@ -120,7 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             icon: FontAwesomeIcons.newspaper,
                             onTap: () {
                               Navigator.push(context, CustomPageRouteSide(child: const StudentLeave()));
-                            }),
+                            }): Container(),
+                        (staffModel.isClassTeacher == true)?
                         homeContainer(
                             context: context,
                             description: "Publish timetable",
@@ -128,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             icon: FontAwesomeIcons.calendar,
                             onTap: () {
                               Navigator.push(context, CustomPageRouteSide(child: const TimeTablePublish()));
-                            }),
+                            }): Container(),
                         homeContainer(
                             context: context,
                             description: "Apply for leave",
@@ -146,7 +150,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveStatus()));
                             }),
-
+                        homeContainer(
+                            context: context,
+                            description: "Today's Time Table",
+                            heading: "Time Table",
+                            icon: FontAwesomeIcons.tableColumns,
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const ViewTimeTable()));
+                            }),
                         homeContainer(
                             context: context,
                             description: "History of leave",
@@ -155,7 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaveHistory()));
                             }),
-
                       ],
                     ),
                   ),
