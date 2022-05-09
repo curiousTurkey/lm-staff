@@ -1,3 +1,4 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lms_staff/AppScreens/Announcement.dart';
 import 'package:lms_staff/AppScreens/HomePage.dart';
 import 'package:lms_staff/AppScreens/LeaveApplication.dart';
@@ -7,6 +8,7 @@ import 'package:lms_staff/AppScreens/Profile.dart';
 import 'package:lms_staff/AppScreens/StaffLogin.dart';
 import 'package:lms_staff/AppScreens/StudentLeave.dart';
 import 'package:lms_staff/AppScreens/TimeTablePublish.dart';
+import 'package:lms_staff/AppScreens/ViewDepartmentAnnouncement.dart';
 import 'package:lms_staff/Resources/StaffAuthMethods.dart';
 import 'package:lms_staff/ReusableUtils/Responsive.dart' as resize;
 import 'package:lms_staff/ReusableUtils/Colors.dart' as color_mode;
@@ -125,7 +127,7 @@ class _SideBarState extends State<SideBar> {
               }),
           (staffModel.isClassTeacher == true)?
           sidebarListTile(
-              leadingIcon: Icons.sms_failed_outlined,
+              leadingIcon: Icons.notifications_outlined,
               title: 'Class Announcement',
               onTap: (){
                 Navigator.pop(context);
@@ -152,6 +154,13 @@ class _SideBarState extends State<SideBar> {
               onTap: (){
                 Navigator.pop(context);
                 Navigator.push(context, CustomPageRouteSide(child: const LeaveApply()));
+              }),
+          sidebarListTile(
+              title: 'Department Announcement',
+              leadingIcon: Icons.notification_important_outlined,
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, CustomPageRouteSide(child: const DepartmentAnnouncement()));
               }),
           sidebarListTile(
               title: 'Leave Status',
