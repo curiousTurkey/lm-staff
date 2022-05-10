@@ -47,7 +47,7 @@ class _LeaveStatusState extends State<LeaveStatus> {
     StaffModel staffModel = Provider.of<StaffProvider>(context).getStaff;
     final Stream<QuerySnapshot> leaveList = FirebaseFirestore.instance.collection('leave').where(
         'email', isEqualTo: staffModel.emailAddress).where(
-        'fromdate', isLessThan: formattedDate).orderBy('fromdate', descending: true).snapshots();
+        'fromdate', isGreaterThanOrEqualTo: formattedDate).orderBy('fromdate', descending: true).snapshots();
     return Scaffold(
       appBar: appBar(context: context, title: 'Leave Status'),
       body: StreamBuilder<QuerySnapshot>(
