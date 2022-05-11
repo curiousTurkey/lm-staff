@@ -84,7 +84,6 @@ class _LeaveStatusState extends State<LeaveStatus> {
                   activeStyle = rejectStyle;
                 }
                 return ListTile(
-                  subtitle: Text(reason),
                   minVerticalPadding: resize.screenLayout(50, context),
                   title: Text(subject),
                   leading: (staffModel.imageUrl == "null") ? Initicon(
